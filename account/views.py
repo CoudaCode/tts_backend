@@ -9,5 +9,4 @@ from .serializer import UserSerializer
 
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
-    print(queryset)
     serializer_class = UserSerializer
