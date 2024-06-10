@@ -20,3 +20,10 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+
+
+class TextToSpeechSerializer(serializers.Serializer):
+    text = serializers.CharField(max_length=115000)
+    language = serializers.CharField(max_length=10)
+    selectedVoice = serializers.CharField(max_length=10)
+    pass
