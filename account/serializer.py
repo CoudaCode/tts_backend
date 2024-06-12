@@ -26,4 +26,17 @@ class TextToSpeechSerializer(serializers.Serializer):
     text = serializers.CharField(max_length=115000)
     language = serializers.CharField(max_length=10)
     selectedVoice = serializers.CharField(max_length=10)
-    pass
+
+
+
+class TextToSpeechSerializer(serializers.Serializer):
+    text = serializers.CharField(max_length=5000)
+    language = serializers.CharField(max_length=5)
+    selectedVoice = serializers.CharField(max_length=10)
+    videoFile = serializers.FileField()
+
+
+class UserSerializerProfile(serializers.ModelSerializer):
+    class Meta:
+        Model= User
+        fields= ['id', 'username', 'email', 'first_name', 'last_name']  
