@@ -7,11 +7,11 @@ from gtts import gTTS
 from moviepy.editor import VideoFileClip, AudioFileClip
 import tempfile
 import os
-from account.serializer import TextToSpeechSerializer
+from account.serializer import TextToSpeechSerializerVideo
 
 class TextToSpeechView(APIView):
     def post(self, request, *args, **kwargs):
-        serializer = TextToSpeechSerializer(data=request.data)
+        serializer = TextToSpeechSerializerVideo(data=request.data)
         if serializer.is_valid():
             text = serializer.validated_data.get('text')
             language = serializer.validated_data.get('language')

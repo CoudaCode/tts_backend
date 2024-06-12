@@ -29,7 +29,7 @@ class TextToSpeechSerializer(serializers.Serializer):
 
 
 
-class TextToSpeechSerializer(serializers.Serializer):
+class TextToSpeechSerializerVideo(serializers.Serializer):
     text = serializers.CharField(max_length=5000)
     language = serializers.CharField(max_length=5)
     selectedVoice = serializers.CharField(max_length=10)
