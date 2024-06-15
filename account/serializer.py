@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+#Creation d'une classe pour la definition des champs 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -21,14 +22,14 @@ class UserSerializer(serializers.ModelSerializer):
         )
         return user
 
-
+#Creation du Serializer de l'app education
 class TextToSpeechSerializer(serializers.Serializer):
     text = serializers.CharField(max_length=115000)
     language = serializers.CharField(max_length=10)
     selectedVoice = serializers.CharField(max_length=10)
 
 
-
+#Creation du Serializer de l'app marketing
 class TextToSpeechSerializer(serializers.Serializer):
     text = serializers.CharField(max_length=5000)
     language = serializers.CharField(max_length=5)
