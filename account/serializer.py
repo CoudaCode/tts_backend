@@ -29,8 +29,8 @@ class TextToSpeechSerializer(serializers.Serializer):
     selectedVoice = serializers.CharField(max_length=10)
 
 
-#Creation du Serializer de l'app marketing
-class TextToSpeechSerializer(serializers.Serializer):
+
+class TextToSpeechSerializerVideo(serializers.Serializer):
     text = serializers.CharField(max_length=5000)
     language = serializers.CharField(max_length=5)
     selectedVoice = serializers.CharField(max_length=10)
