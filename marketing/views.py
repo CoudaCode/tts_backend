@@ -11,7 +11,7 @@ from account.serializer import TextToSpeechSerializer
 
 class TextToSpeechView(APIView):
     def post(self, request, *args, **kwargs):
-        serializer = TextToSpeechSerializer(data=request.data)
+        serializer = TextToSpeechSerializer(data=request.data) #extanciatiob du serializer
         if serializer.is_valid():
             text = serializer.validated_data.get('text')
             language = serializer.validated_data.get('language')
@@ -32,7 +32,7 @@ class TextToSpeechView(APIView):
                     audio_clip = AudioFileClip(audio_fp.name)
 
                 
-                    final_clip = video_clip.set_audio(audio_clip)
+                    final_clip = video_clip.set_audio(audio_clip) #liaison de la video a l'audio
                     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as final_fp:
                         final_clip.write_videofile(final_fp.name, codec='libx264', audio_codec='aac')
                         final_fp.seek(0)
