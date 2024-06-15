@@ -5,6 +5,7 @@ class Parametre_vocal(models.Model):
   vitesse = models.IntegerField()
   langue = models.CharField(max_length=255)
   voix = models.CharField(max_length=255)
+  
 class Contenu(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   text = models.TextField()
