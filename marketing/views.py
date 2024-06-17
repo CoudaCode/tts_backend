@@ -31,8 +31,7 @@ class TextToSpeechView(APIView):
                     video_clip = VideoFileClip(video_fp.name)
                     audio_clip = AudioFileClip(audio_fp.name)
 
-                
-                    final_clip = video_clip.set_audio(audio_clip)
+                    final_clip = video_clip.set_audio(audio_clip)          
                     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as final_fp:
                         final_clip.write_videofile(final_fp.name, codec='libx264', audio_codec='aac')
                         final_fp.seek(0)
