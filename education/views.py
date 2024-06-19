@@ -21,6 +21,7 @@ def text_to_speech(request):
 
                 response = HttpResponse(speech_file, content_type='audio/mp3')
                 response['Content-Disposition'] = 'attachment; filename="speech.mp3"'
+                
                 return response
             except Exception as e:
                 return JsonResponse({'error': str(e)}, status=500)
