@@ -22,3 +22,11 @@ class ProfilUser(APIView):
         serializer = UserSerializerProfile(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+#Creation de la vue qui permettra de recuperer les info utilisateur
+class UserProfileView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+    
+
