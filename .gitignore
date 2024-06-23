@@ -1,3 +1,4 @@
 tts_env
 .DS_Store
 venv
+__pycache__
