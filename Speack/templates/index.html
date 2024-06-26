@@ -69,13 +69,66 @@
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+
+            .container {
+                width: 100%;
+                margin-top: 0;
+                padding: 10px;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+
+            th {
+                display: none; /* Hide table headers on small screens */
+            }
+
+            tr {
+                margin-bottom: 10px;
+                display: block;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                white-space: normal; /* Ensure text wraps */
+                word-wrap: break-word; /* Ensure text wraps */
+            }
+
+            td:before {
+                position: absolute;
+                top: 0;
+                left: 10px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+
+            a {
+                word-wrap: break-word; /* Ensure links wrap */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
-        
         <a href="#endpoints">Endpoints</a>
-       
         <a href="#contact">Contact</a>
     </div>
 
@@ -90,28 +143,28 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>account/api/register/</td>
-                    <td>Register a new user</td>
+                    <td data-label="Endpoint"><a style="color: red; text-decoration: none;" href="https://speechsync.pythonanywhere.com/account/api/register/">https://speechsync.pythonanywhere.com/account/api/register/</a></td>
+                    <td data-label="Description">Register a new user</td>
                 </tr>
                 <tr>
-                    <td>account/api/token/login/</td>
-                    <td>Login and obtain a token</td>
+                    <td data-label="Endpoint"><a style="color: red; text-decoration: none;" href="https://speechsync.pythonanywhere.com/account/api/token/login/">https://speechsync.pythonanywhere.com/account/api/token/login/</a></td>
+                    <td data-label="Description">Login and obtain a token</td>
                 </tr>
                 <tr>
-                    <td>account/api/token/refresh/</td>
-                    <td>Refresh authentication token</td>
+                    <td data-label="Endpoint"><a style="color: red; text-decoration: none;" href="https://speechsync.pythonanywhere.com/account/api/token/refresh/">https://speechsync.pythonanywhere.com/account/api/token/refresh/</a></td>
+                    <td data-label="Description">Refresh authentication token</td>
                 </tr>
                 <tr>
-                    <td>account/profile/&lt;int:id&gt;/</td>
-                    <td>Get user profile by ID</td>
+                    <td data-label="Endpoint" style="color: red;">https://speechsync.pythonanywhere.com/account/profile/&lt;int:id&gt;</td>
+                    <td data-label="Description">Get user profile by ID</td>
                 </tr>
                 <tr>
-                    <td>education/text-to-speech/</td>
-                    <td>Convert text to speech</td>
+                    <td data-label="Endpoint" style="color: red;">https://speechsync.pythonanywhere.com/education/text-to-speech/</td>
+                    <td data-label="Description">Convert text to speech</td>
                 </tr>
                 <tr>
-                    <td>marketting/api/marketting/</td>
-                    <td>Text to speech for marketing</td>
+                    <td data-label="Endpoint" style="color: red;">https://speechsync.pythonanywhere.com/marketting/api/marketting/</td>
+                    <td data-label="Description">Text to speech for marketing</td>
                 </tr>
             </tbody>
         </table>
