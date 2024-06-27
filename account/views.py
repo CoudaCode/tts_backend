@@ -10,25 +10,14 @@ from django.http import JsonResponse
 
 User = get_user_model()
 
-
 class UserCreateView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class ProfilUser(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request, *args, **kwargs):
-        user = request.user
-        serializer = UserSerializerProfile(user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-#Creation de la vue qui permettra de recuperer les info utilisateur
 class UserProfileView(generics.RetrieveAPIView):
-    def get(self, request, user_id):
+    def get(self, request, id):
         try:
-            user = User.objects.get(pk=user_id)
+            user = User.objects.get(pk=id)
             user_data = {
                 "id": user.id,
                 "username": user.username,
@@ -40,5 +29,3 @@ class UserProfileView(generics.RetrieveAPIView):
             return JsonResponse(user_data, status=200)
         except User.DoesNotExist:
             return JsonResponse({"error": "User not found"}, status=404)
-    
-

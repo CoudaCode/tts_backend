@@ -1,4 +1,3 @@
-# views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -31,8 +30,12 @@ class TextToSpeechView(APIView):
                     video_clip = VideoFileClip(video_fp.name)
                     audio_clip = AudioFileClip(audio_fp.name)
 
+<<<<<<< HEAD
                 
                     final_clip = video_clip.set_audio(audio_clip) #liaison de la video a l'audio
+=======
+                    final_clip = video_clip.set_audio(audio_clip)          
+>>>>>>> d188d1eb80a3017fb0810a2613dcd5997fd613c8
                     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as final_fp:
                         final_clip.write_videofile(final_fp.name, codec='libx264', audio_codec='aac')
                         final_fp.seek(0)
